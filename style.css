@@ -1,0 +1,209 @@
+html {
+    font-size: 16px;
+}
+
+
+body {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+.header h1 {
+    font-family: 'Raleway';
+    font-size: 3.125rem;
+    font-variant: normal;
+    font-weight: 900;
+    padding: 30px;
+    color: rgb(34, 9, 145);
+    background-color: rgb(162, 124, 250);
+}
+
+p { 
+    font-family: 'Raleway';
+    font-size: 1rem;
+    color: rgb(30, 21, 70);
+
+}
+
+h2 {
+    font-family: 'Raleway';
+    font-size: 1.5rem;
+    color: rgb(30, 21, 70);
+}
+
+h3 {
+    font-family: 'Raleway';
+    font-size: 1.17rem;
+    color: rgb(30, 21, 70);
+}
+
+h5 {
+    font-family: 'Raleway';
+    font-size: 0,83rem;
+    color: rgb(30, 21, 70);
+}
+
+.col-1 {
+    width: 8.33%;
+}
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+.col-4 {
+    width: 33.33%;
+}
+.col-5 {
+    width: 41.66%;
+}
+.col-6 {
+    width: 50%;
+}
+.col-7 {
+    width: 58.33%;
+}
+.col-8 {
+    width: 66.66%;
+}
+.col-9 {
+    width: 75%;
+}
+.col-10 {
+    width: 83.33%;
+}
+.col-11 {
+    width: 91.66%;
+}
+.col-12 {
+    width: 100%;
+}
+
+.col-9 img {
+    width: 100%;
+    max-width: 700px;
+    height: 300px;
+}
+
+.col-3 img {
+    width: 100%; 
+    height: auto;
+}
+
+.TopBarL, .TopBarR {
+    background-color: rgb(64, 9, 95);
+}
+
+.Footeris {
+    background-color: rgb(221, 221, 221);
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+
+.TopBarL a {
+    font-family: 'Raleway';
+    font-size: 1rem;
+    color: floralwhite;
+    float: left;
+    padding: 14px 16px;
+    /* text-align: center; */
+}
+
+.TopBarR a {
+    font-family: 'Raleway';
+    font-size: 1rem;
+    color: floralwhite;
+    float: right;
+    padding: 14px 16px;
+    /* text-align: right; */
+}
+
+.Kort {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.Padas20 {
+    padding: 20px;
+}
+
+
+.ToR {
+    text-align: right;
+}
+.ToL {
+    text-align: left;
+}
+
+.TopBarL a:hover {
+    background-color: rgb(162, 124, 250);
+    color: rgb(30, 21, 70);
+}
+.TopBarR a:hover {
+    background-color: rgb(162, 124, 250);
+    color: rgb(30, 21, 70);
+}
+
+[class*="col-"] {
+    float: left;
+    /* flex-wrap: wrap;
+    flex-flow: row; */
+    /* justify-content: center;
+    align-self: center; */
+    text-align: center;
+    /* border: darkorchid 1px solid; */
+}
+
+@media all and (max-width:720px) {
+    body {
+        background-color: silver;
+    }
+    p {
+        font-size: 1.3rem;
+    }
+
+    .header h1 {
+        font-size: 2.5rem;
+    }
+
+    /* .col-9 img {
+        width: auto;
+        height: auto;
+    } */
+    .col-3 img {
+        width: 90%;
+        height: 300px;
+        max-width: 290px;
+        max-height: 200px;
+    }
+
+
+    /* .TopBar a {
+        width: 100%;
+    } */
+
+    [class*="col-"] {
+        width: 100%;
+    }
+    .TopBarL a, .TopBarR a {
+        width: 100%;
+        font-size: 1.4rem;
+    }
+
+    .ToL, .ToR {
+        text-align: center;
+    }
+    .NotToL {
+        text-align: left;
+    }
+
+}
