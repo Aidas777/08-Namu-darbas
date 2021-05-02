@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bandau kazkoki Bootstrap</title>
+
+     <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+
+<style>
+    table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+    }
+  body {
+      margin: 20px;
+      
+  }
+
+</style>
+
+</head>
+<body>
+    <p>Koks dydis?</p>
+    <p>Laisko ikona: <span class="glyphicon glyphicon-copyright-mark"></span></p>
+    
+    <button style='font-size:24px; background-color: dimgrey; border-radius: 30px;'>Buttonas</button>
+
+    <h1>Opapa kaip veikia <br><small>Geras</small></h1>
+    <p>Neryskintas <mark>paryskintas </mark> textas</p>
+    <p>Kose malose 
+        <abbr title='Taip ne paparas'>
+            Buvo
+        </abbr>
+         ir bus
+    </p>
+
+    <blockquote>
+        Koks cia dabar ?
+        <footer>Futeris</footer>
+    </blockquote>
+
+    <p>Kazkosk text <code>kodassas</code> makalose</p>
+
+    <hr style='color: blue; border: crimson; background-color: darkgoldenrod; border-width: 1px; height: 12px;'>
+
+    <p>Kazkosk text <kbd>ctrl + kodassas</kbd> makalose</p>
+
+    <hr>
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+    <p class='text-primary'>This text is important.</p>
+
+    <table style='text-align: center;'>
+        <thead>
+            <th>Vasio</th>
+            <th>kokom</th>
+            <th>Klop</th>
+        </thead>
+        <tr>
+            <td>Asio</td>
+            <td>turios</td>
+            <td>Gamosf</td>
+        </tr>
+    </table>
+
+    <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">
+        Click me to display Date and Time.
+    </button>
+    
+        <button type='button' onclick='ManoFunkc()'>
+            Spausk greit !!!
+        </button>
+        <script>
+            function ManoFunkc() {
+                window.confirm('Ar paspaudei ?');
+                alert('blia\nspausk !');
+                Document.getFullYear='demo'
+            }
+
+        </script>
+
+
+    <p id="demo"></p>
+ 
+    <br>
+    <br>
+    <!-- <iframe src='https://www.youtube.com/watch?v=L_3AerohsDA' width=300px height='300px'>Video ka</iframe> -->
+    <iframe width="400px" height="230px" src="https://www.youtube.com/embed/L_3AerohsDA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <video width="320" height="240" controls>Kasdlfhsdlf</video>
+
+    <h5 style='margin-bottom: 10px; margin-right: 10px;'>
+        © Aidas Merlov
+        <script>
+            document.write(new Date().getFullYear())
+        </script>
+    </h5>
+
+
+
+</body>
+</html>
