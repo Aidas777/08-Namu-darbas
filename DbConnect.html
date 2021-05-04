@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- linkas D:\ExEDisk\Access MDB\IspanijaVeza\Trink lauk\TestAutoexe.accdb -->
+
+    <style>
+
+        iframe {
+          height: 500px;
+          width: 70%;
+          margin: 0 auto;
+        }
+
+        body {
+          text-align: center;
+          align-self: center;
+          align-content: center;
+        }
+    </style>
+</head>
+<body>
+
+  <iframe class="Rodyk">Nieko</iframe>
+
+
+  <script>
+    
+    function query() {
+    var adVarWChar = 202;
+    var adParamInput = 1;
+
+    var kelias="D:\\ExEDisk\\Access MDB\\IspanijaVeza\\Trink lauk\\TestAutoexe.accdb"
+    var cn = new ActiveXObject("ADODB.Connection");
+    var strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + kelias;
+    cn.Open(strConn);
+    var cm = new ActiveXObject("ADODB.Command");
+    cm.ActiveConnection = cn;
+    cm.CommandText = "SELECT * FROM Managers";
+    // cm.Parameters.Append(cm.CreateParameter(
+    //         "?", 
+    //         adVarWChar, 
+    //         adParamInput, 
+    //         255, 
+    //         "%" + document.getElementById("Rodyk").value + "%"));
+    var rs = cm.Execute();  // returns ADODB.Recordset object
+    if (rs.EOF) {
+        document.write("<p>No data found.</p>");
+    } else {
+        while (!rs.EOF) {
+            document.write("<p>" + rs.fields(0).value + ", ");
+            // (list of fields truncated for clarity)
+            document.write(rs.fields(1).value + ".</p>");
+            rs.MoveNext();
+        }
+    }
+    rs.Close();
+    cn.Close();
+}
+
+  </script>
+
+</body>
+</html>
