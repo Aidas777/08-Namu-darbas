@@ -90,28 +90,60 @@
 
     <div class='conteineris'>
             <div class='col-6 col-md-6 Remas' title='Blondine'>
-                <img src='https://www.nurseregistry.com/wp-content/uploads/2018/03/blonde-lady-crohns.jpg'>
+                <!-- <img src='https://www.nurseregistry.com/wp-content/uploads/2018/03/blonde-lady-crohns.jpg'> -->
                 <!-- <img src='https://source.unsplash.com/random?sig=123'> -->
+                <!-- <img src='https://picsum.photos/600/400?random=1'> -->
+                <img class='image'>
             </div>
 
             <div class='col-6 col-md-6 Remas' title='Vienuoliai'>
-                <img src='https://media.istockphoto.com/photos/buddhist-monk-and-buddhist-novice-going-about-with-a-bowl-to-receive-picture-id991856840'>
+                <!-- <img src='https://media.istockphoto.com/photos/buddhist-monk-and-buddhist-novice-going-about-with-a-bowl-to-receive-picture-id991856840'> -->
                 <!-- <img src='https://source.unsplash.com/random?sig=123'> -->
+                <!-- <img src='https://picsum.photos/600/400?random=2'> -->
+                <img class='image'>
             </div>
 
             <div class='col-6 col-md-6 Remas' title='Kava'>
-                <img src='https://cdn.cancercenter.com/-/media/ctca/images/others/blogs/2019/01-january/01-blog-coffee-l.jpg?h=630&w=1200&hash=FBC8C0A0FB1EE28C44D4A741AFB4BD1B'>
+                <!-- <img src='https://cdn.cancercenter.com/-/media/ctca/images/others/blogs/2019/01-january/01-blog-coffee-l.jpg?h=630&w=1200&hash=FBC8C0A0FB1EE28C44D4A741AFB4BD1B'> -->
+                <!-- <img src='https://picsum.photos/600/400?random=3'> -->
+                <img class='image'>
             </div>
 
             <div class='col-6 col-md-6 Remas' title='Budda'>
-                <img src='https://st.depositphotos.com/1993297/2296/i/950/depositphotos_22966834-stock-photo-buddha-at-pond.jpg'>
+                <!-- <img src='https://st.depositphotos.com/1993297/2296/i/950/depositphotos_22966834-stock-photo-buddha-at-pond.jpg'> -->
+                <!-- <img src='https://picsum.photos/600/400?random=4'> -->
+                <img class='image'>
             </div>
 
+            <div class='col-6 col-md-6 Remas'>
+                <img class='image'>
+            </div>
+            <b id='test' style='color: black;'></b><br>
+
+
     </div>
 
-    <div>
+    <script>
+
+        var imgLink = 'https://picsum.photos/600/400?random=';
+        var imgSk;
         
-    </div>
+        function randImg() {
+
+        for (imgSk=1;  imgSk <5; imgSk++) {
+            var x =Math.round(10*Math.random());
+            if (x == 0) {
+                x = 1;
+            } 
+            // var x = imgSk;
+            document.querySelector('.image').src = imgLink + x;
+            document.getElementById('test').innerHTML=x + " - " + imgLink + x;
+            // width: 400px height: 100px';
+            }
+        }
+        
+        randImg();
+    </script>
 
 
 </body>
