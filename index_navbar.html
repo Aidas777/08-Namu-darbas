@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puslapis su navigacija</title>
+    <title>Puslapis su navigacija Aidas</title>
     
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
@@ -60,7 +60,12 @@
             margin: 22px;
         }
 
+        .navbar > .list {
+            display: flex;
+        }
+
         .navbar > .list > .item {
+            display: block;
             height: 64px;
             line-height: 64px;
             padding-left: 22px;
@@ -69,11 +74,11 @@
             color: #555;
             font-size: 0.875rem;
         }
-        .navbar > .list > .item.-link {
+        .navbar > .list > .item.-link { /* jei taip kaip cia tarp .item ir -link nera tarpo tai traktuojama kaip ir tas, ir tas */
             line-height: 68px;
             color: #555;
             border-bottom: 4px solid transparent;
-            padding-bottom: 15px;
+            padding-bottom: 22px;
         }
 
         .navbar > .list > .item.-link:hover {
@@ -98,28 +103,72 @@
         }
 
         .navbar > .toggle > .icon:before {
-            top: 20px;
+            top: -8px;
         }
 
         .navbar > .toggle > .icon:after {
-            top: 40px;
+            top: 8px;
         }
-        .navbar > .toggle {
-            /* display: none; */
+        .navbar > .toggle > .icon {
             position: relative;
+            margin-top: 8px;
+            margin-bottom: 8px;
         }
 
-        @media all and (max-width:600px) {
+        .navbar > .toggle {
+            display: none;
+            border: 0;
+            background-color: transparent;
+            cursor: pointer;
+            padding: 22px;
+
+        }
+
+        @media all and (max-width:816px) {
             
+            .area {
+                flex-direction: column;
+                text-align: center;
+                /* justify-content: center; */
+            }
+
+            .navbar > .list {
+                flex-direction: column;
+                flex-wrap: wrap;
+            }
+
+            .navbar > .list > .item {
+                width: 100%;
+            }
+
+            .navbar > .brand {
+                width: 100%;
+                text-align: center;
+            }
+
             .navbar > .toggle {
-            /* display:block; */
-            position: relative;
-            height: 68px;
+                display: block;
+            }
+
+            .navbar > .toggle {
+            display:block;
+            /* position: relative; */
+            align-self: center;
+  
             
             }
+
         }
 
-
+        .kvadratelis {
+            display: none;
+                width: 200px;
+                height: 200px;
+                background-color: red;
+            }
+        .kvadratelis.aktyvus {
+            display: block;
+        }
 
 
     </style>
@@ -142,15 +191,65 @@
                     </span>
                 </nav>
 
-                <button class='toggle'>
+                <button id='hamburger' class='toggle'>
                     <span class='icon'></span>
-                   
+
                 </button>
 
             </div>
         </div>
 
+        <div class='main'>
+            <span class='dinaminis'>Tesktas</span>
+            <span class='dinaminis1'>4</span>
+            <button onclick='on()' class='on'>Įjungti</button>
+            <button onclick='off()' class='off'>Išjungti</button>
+
+            <div class='kvadratelis aktyvus'></div>
+        </div>
     </div>
 
+    <script>
+
+        function on() {
+            document.querySelector('.kvadratelis').classList.add('aktyvus');
+            console.log('Įjungta');
+        }
+
+        function off() {
+            console.log('Išjungta');
+            // console.log(document.querySelector('.kvadratelis').classList);
+            document.querySelector('.kvadratelis').classList.remove('aktyvus');
+
+        }
+
+        var suma, sk1, sk2;
+        suma = 0;
+        sk1 = 8;
+        sk2 = 10;
+
+        suma = sk1 + sk2;
+
+        console.log(suma);
+        console.log('teksas ranka');
+        console.log(document.querySelector('.dinaminis').innerText);
+        console.log(document.querySelector('.dinaminis1').innerText);
+
+        sk1 = document.querySelector('.dinaminis1').innerText; //4
+        sk2=5;
+
+        var skirtumas;
+        
+        skirtumas=sk2 - sk1;
+
+
+        console.log('skaicius is dizaino '+ sk1)
+
+        console.log(skirtumas)
+
+        document.querySelector('.dinaminis').innerText = skirtumas;
+        
+    </script>
+    
 </body>
 </html>

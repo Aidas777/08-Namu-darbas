@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kazkoks Bootstrapas</title>
+    <title>Bootstrapas Pics'u</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- jQuery library -->
@@ -86,7 +86,7 @@
 
 </head>
 
-<body>
+<body onload='ImgRnd()'>
 
     <div class='conteineris'>
             <div class='col-6 col-md-6 Remas' title='Blondine'>
@@ -118,6 +118,20 @@
             <div class='col-6 col-md-6 Remas'>
                 <img class='image'>
             </div>
+
+            <div class='col-6 col-md-6 Remas'>
+                <img class='image'>
+            </div>
+
+            <div class='col-6 col-md-6 Remas'>
+                <img class='image'>
+            </div>
+
+            <div class='col-6 col-md-6 Remas'>
+                <img class='image'>
+            </div>
+
+
             <b id='test' style='color: black;'></b><br>
 
 
@@ -125,25 +139,37 @@
 
     <script>
 
-        var imgLink = 'https://picsum.photos/600/400?random=';
-        var imgSk;
-        
-        function randImg() {
+        // window.addEventListener('load', function() {
+        //     console.log('All assets are loaded');
+        //     ImgRnd();
+        // }) POKOLKAS SITAS KODAS MAN PERSUDETINGAS TODEL PABANDZIAU PALEISTI FUNKC PER BODY IR SUVEIKE
 
-        for (imgSk=1;  imgSk <5; imgSk++) {
-            var x =Math.round(10*Math.random());
-            if (x == 0) {
-                x = 1;
-            } 
-            // var x = imgSk;
-            document.querySelector('.image').src = imgLink + x;
-            document.getElementById('test').innerHTML=x + " - " + imgLink + x;
-            // width: 400px height: 100px';
+        var imgLink = 'https://picsum.photos/600/400?random=';
+        var imgNr;
+        var imgSk = document.getElementsByClassName('image').length-1;
+        var skSeka="";
+
+        function ImgRnd() {
+
+            for (imgNr=0;  imgNr <=imgSk; imgNr++) {
+                var x =Math.round(10*Math.random());
+                if (x == 0) {
+                    x = 1;
+                }
+                if (buvesX==x) {
+                    x++
+                }
+                var buvesX = x;
+                skSeka = skSeka + String(x);
+                console.log('Atsitiktinis sk: ' + x);
+                document.querySelectorAll('.image')[imgNr].src = imgLink + x;
+                document.getElementById('test').innerHTML = x + " - " + imgLink + x;
+                // width: 400px height: 100px';
             }
+            console.log('Paveiksleliu sk: (' + (imgSk + 1) + ') ;/Sk seka: (' + skSeka + ')');
         }
         
-        randImg();
-    </script>
+      </script>
 
 
 </body>
