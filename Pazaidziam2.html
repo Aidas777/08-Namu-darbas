@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Niko</title>
+    Access-Control-Allow-Origin: "http://www.meteo.lt";
 
     <style>
         .TTT {
@@ -30,5 +31,25 @@
     </script>
     
     <p>Neiterptas <ins>Iteprtas txt</ins></p>
+
+    <script>
+        
+        fetch('http://www.meteo.lt/lt/miestas?placeCode=Klaipeda')
+        // fetch('https://api.unsplash.com/photos/?client_id=ZvkJTfXfewbmcwd7zcRowZPz21ObQRED6gDFFKFHxiY&page=1')
+        .then(function(res) {
+            res.json
+        })
+        .catch(function() {
+            alert('ivyko kazkokia klaida scripte !');
+        }) 
+        .then(data => {
+
+            // for(var i = 0; i < data.length; i++) {
+                console.log(data);
+            // }
+        }
+        )
+    </script>
+
 </body>
 </html>

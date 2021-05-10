@@ -15,14 +15,20 @@
         /* img {
             width: 600px;
         } */
+
+        /* .col-md-6 {
+            display: flex;
+            flex-direction: column;
+            float: left;
+        } */
     </style>
 </head>
 <body>
 
     <div class='container'>
         <div class='row'>
-            <div class='col-md-6'>Tes</div>
-            <div class='col-md-6'>Tsr</div>
+            <div class='col-md-6'>AAA 1</div>
+            <div class='col-md-6'>AAA 2</div>
 
         </div>
         
@@ -89,26 +95,30 @@
 
         // console.log(informacija);
         // console.log(masyvas);
-
-        for(var stulp = 1; stulp <=2; stulp++) {
+        for(var stulp = 0; stulp <=1; stulp++) {
+            // var stulp = 2;
+            // console.log('stulp: ' + stulp);
             
             fetch('https://api.unsplash.com/photos/?client_id=ZvkJTfXfewbmcwd7zcRowZPz21ObQRED6gDFFKFHxiY&page=' + stulp)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
-
                 for(var i = 0; i < data.length; i++) {
-                        if(stulp < 2) {
+                    console.log('stulp: ' + stulp);
+                        if (stulp = 0) {
                             console.log(data[i].urls.regular);
+                            console.log('stulp1: ' + stulp);
                             var imageElement = document.createElement('img');
                             imageElement.src = data[i].urls.regular;
                             document.querySelectorAll('.col-md-6')[0].append(imageElement);
-                            console.log(stulp);
+
                         } else {
+                            console.log(data[i].urls.regular);
+                            console.log('stulp2: ' + stulp);
                             var imageElement = document.createElement('img');
                             imageElement.src = data[i].urls.regular;
                             document.querySelectorAll('.col-md-6')[1].append(imageElement);
-                            console.log(stulp);
+                            
                         }
                     }
                 }
