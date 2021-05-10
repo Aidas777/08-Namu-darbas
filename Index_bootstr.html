@@ -35,6 +35,7 @@
             border: gainsboro;
             border-width: 1px;
             border-style: solid;
+            background-color: slategray;
         }
         
         .row {
@@ -53,6 +54,11 @@
 
         }
 
+        .pav {
+            text-align: center;
+            vertical-align: bottom;
+        }
+
         .conteineris {
             padding: 10px;
             margin-left: 10px;
@@ -67,12 +73,13 @@
             padding: 5px;
          }
         .col-6:hover {
-            background-color: rgb(89, 0, 255);
+            background-color: darkgray;
             
         }
 
-        @media all and (max-width:720px) {
+        @media all and (max-width:1024px) {
             .col-md-6 {
+            display: flex;
             width: 100%;
             float: left;
             min-height: auto;
@@ -94,6 +101,7 @@
                 <!-- <img src='https://source.unsplash.com/random?sig=123'> -->
                 <!-- <img src='https://picsum.photos/600/400?random=1'> -->
                 <img class='image'>
+                <p class='pav'></p>
             </div>
 
             <div class='col-6 col-md-6 Remas' title='Vienuoliai'>
@@ -101,40 +109,45 @@
                 <!-- <img src='https://source.unsplash.com/random?sig=123'> -->
                 <!-- <img src='https://picsum.photos/600/400?random=2'> -->
                 <img class='image'>
+                <p class='pav'></p>
             </div>
 
             <div class='col-6 col-md-6 Remas' title='Kava'>
                 <!-- <img src='https://cdn.cancercenter.com/-/media/ctca/images/others/blogs/2019/01-january/01-blog-coffee-l.jpg?h=630&w=1200&hash=FBC8C0A0FB1EE28C44D4A741AFB4BD1B'> -->
                 <!-- <img src='https://picsum.photos/600/400?random=3'> -->
                 <img class='image'>
+                <p class='pav'></p>
             </div>
 
             <div class='col-6 col-md-6 Remas' title='Budda'>
                 <!-- <img src='https://st.depositphotos.com/1993297/2296/i/950/depositphotos_22966834-stock-photo-buddha-at-pond.jpg'> -->
                 <!-- <img src='https://picsum.photos/600/400?random=4'> -->
                 <img class='image'>
+                <p class='pav'></p>
             </div>
 
             <div class='col-6 col-md-6 Remas'>
                 <img class='image'>
+                <p class='pav'></p>
             </div>
 
             <div class='col-6 col-md-6 Remas'>
                 <img class='image'>
+                <p class='pav'></p>
             </div>
 
             <div class='col-6 col-md-6 Remas'>
                 <img class='image'>
+                <p class='pav'></p>
             </div>
 
             <div class='col-6 col-md-6 Remas'>
                 <img class='image'>
+                <p class='pav'></p>
             </div>
 
 
-            <b id='test' style='color: black;'></b><br>
-
-
+ 
     </div>
 
     <script>
@@ -142,7 +155,7 @@
         // window.addEventListener('load', function() {
         //     console.log('All assets are loaded');
         //     ImgRnd();
-        // }) POKOLKAS SITAS KODAS MAN PERSUDETINGAS TODEL PABANDZIAU PALEISTI FUNKC PER BODY IR SUVEIKE
+        // }) SITAS KODAS POKOLKAS MAN PASIRODE PER-SUDETINGAS TODEL PABANDZIAU PALEISTI FUNKC PER BODY IR SUVEIKE
 
         var imgLink = 'https://picsum.photos/600/400?random=';
         var imgNr;
@@ -152,21 +165,34 @@
         function ImgRnd() {
 
             for (imgNr=0;  imgNr <=imgSk; imgNr++) {
-                var x =Math.round(10*Math.random());
-                if (x == 0) {
-                    x = 1;
-                }
-                if (buvesX==x) {
-                    x++
-                }
-                var buvesX = x;
-                skSeka = skSeka + String(x);
-                console.log('Atsitiktinis sk: ' + x);
-                document.querySelectorAll('.image')[imgNr].src = imgLink + x;
-                document.getElementById('test').innerHTML = x + " - " + imgLink + x;
+
+                document.querySelectorAll('.image')[imgNr].src = imgLink + imgNr;
+                document.querySelectorAll('.pav')[imgNr].innerHTML = 'Paveiksliukas - ' + Number(imgNr + 1);
+
                 // width: 400px height: 100px';
+
+                skSeka=skSeka + imgNr;
             }
             console.log('Paveiksleliu sk: (' + (imgSk + 1) + ') ;/Sk seka: (' + skSeka + ')');
+            // alert('Viso paveiksleliu: ' + Number(imgSk + 1));
+
+
+            // for (imgNr=0;  imgNr <=imgSk; imgNr++) {
+            //     var x =Math.round(10*Math.random());
+            //     if (x == 0) {
+            //         x = 1;
+            //     }
+            //     if (buvesX==x) {
+            //         x++
+            //     }
+            //     var buvesX = x;
+            //     skSeka = skSeka + String(x);
+            //     console.log('Atsitiktinis sk: ' + x);
+            //     document.querySelectorAll('.image')[imgNr].src = imgLink + x;
+            //     document.getElementById('test').innerHTML = x + " - " + imgLink + x;
+            //     // width: 400px height: 100px';
+            // }
+            // console.log('Paveiksleliu sk: (' + (imgSk + 1) + ') ;/Sk seka: (' + skSeka + ')');
         }
         
       </script>

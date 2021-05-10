@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartoju Motejaus NavBara</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            max-width: 1280px;
+            margin: 0 auto;
+            font-family: fantasy;
+            background-color: rgb(223, 214, 233);
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        .container {
+            width: 100%;
+            margin: auto;
+        }
+
+        .nav-bar {
+            display: block;
+            border: transparent;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            line-height: 60px;
+            /* box-shadow: 20px 35px 5px 0px grey; */
+            box-shadow: 10px 10px 10px 0 gray;
+            /* padding: 10px; */
+            background-color: whitesmoke;
+        }
+
+        .nav-bar > .bar-components {
+            /* flex-direction: row; */
+            flex-flow: row wrap;
+            display: flex;
+            justify-content: space-between;
+
+            /* align-items: stretch; */
+            
+        }        
+
+        .nav-bar > .bar-components > .imone {
+            padding-right: 15px;
+            padding-left: 15px;
+            border-bottom: 4px solid transparent;
+            padding-bottom: 4px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        a {
+            color: rgb(95, 82, 91);
+        }
+
+        .nav-bar > .bar-components > .rest-components {
+            display: flex;
+            flex-direction: row;
+            flex-flow: row wrap;
+            /* margin-bottom: 0; */
+   
+        }
+
+        /* #listas {
+            display: flex;
+        } */
+
+        .nav-bar > .bar-components > .rest-components > .item {
+            display: block;
+            padding-right: 15px;
+            padding-left: 15px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            border-bottom: 4px solid transparent;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            /* padding-bottom: 6px; */
+        }
+
+        .batonas {
+            display: block;
+            padding-right: 0px;
+            padding-left: 0px;
+            margin-right: 15px;
+            margin-left: 15px;
+            margin-top: auto;
+            margin-bottom: auto;
+            width: 40px;
+            height: 54px;
+            border: 0;
+            cursor: pointer;
+            background-color: transparent;
+            
+        }
+        
+        .bruksnys {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .bruksnys,
+        .bruksnys:before,
+        .bruksnys:after {
+            display: block;
+            position: relative;
+            height: 4px;
+            width: 26px;
+            background-color: rgb(81, 82, 83);
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        .bruksnys:before,
+        .bruksnys:after {
+            position: absolute;
+            content: "";
+        }
+
+        .bruksnys:before {
+            top: -8px;
+        }
+
+        .bruksnys:after {
+            top: 8px;
+        }
+
+        .iconFind {
+            padding-right: 15px;
+            padding-left: 15px;
+            cursor: pointer;
+            /* position: relative; */
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover,
+        .nav-bar > .bar-components > .rest-components > .item:hover,
+        .nav-bar > .bar-components > .imone:hover {
+            border-bottom-color: purple;
+            border-bottom: 4px solid purple;
+            color: navy;
+            font-weight: bolder;
+        }
+
+        @media all and (max-width: 700px) {
+
+           .bar-components {
+            flex-direction: column;
+            flex-flow: column;
+            display: flex;
+            width: 100%;
+            }
+
+            .imone, .item, .iconFind {
+                width: 100%;
+            }
+
+            .rest-components {
+                flex-direction: column;
+                flex-flow: column wrap;
+            }
+
+            .batonas {
+                display: block;
+            }
+
+        }
+
+
+    </style>
+    
+</head>
+<body>
+    <div class= 'container'>
+
+        <div class='nav-bar'>
+            <div class='bar-components'>
+                <a href='#' class='imone'>
+                    Imone
+                </a>
+
+                <div class='rest-components' id='listas'>
+                    <a href='#' class = 'item -linkas'>Produktai</a>
+                    <a href='#' class = 'item -linkas'>Media</a>
+                    <a href='#' class = 'item -linkas'>Kainynas</a>
+                    <a href='#' class = 'item -linkas'>Pagalba</a>
+                    <a href='#' class = 'item -linkas'>Apie mus</a>
+
+                    <span class='iconFind'>
+                        <i class='fa fa-search' aria-hidden="true"></i>
+                    </span>
+
+                    <button class='batonas'>
+                        <span class='bruksnys'></span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

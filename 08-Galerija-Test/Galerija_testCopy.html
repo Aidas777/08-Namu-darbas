@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerija</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        /* img {
+            width: 600px;
+        } */
+    </style>
+</head>
+<body>
+
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-6'>Tes</div>
+            <div class='col-md-6'>Tsr</div>
+
+        </div>
+        
+    </div>
+    
+    <script>
+
+        // var x = 1 ;
+
+        // var masyvas;
+        // var informacija = '';
+
+        // masyvas = {
+        //     "image1": "https://images.unsplash.com/photo-1620466692208-fcf6417e2ae7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw3fHx8fHx8Mnx8MTYyMDYzNTAxOQ&ixlib=rb-1.2.1&q=85",
+        //     "image2": "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //     "image3": "https://images.unsplash.com/photo-1620440663626-cba4be0817dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw4fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //     "image4": "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+
+        //     "urls": [
+        //         "https://images.unsplash.com/photo-1620466692208-fcf6417e2ae7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw3fHx8fHx8Mnx8MTYyMDYzNTAxOQ&ixlib=rb-1.2.1&q=85",
+        //         "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //         "https://images.unsplash.com/photo-1620440663626-cba4be0817dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw4fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //         "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //         "https://images.unsplash.com/photo-1620599855781-a4ba5bbec57a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHwxMHx8fHx8fDJ8fDE2MjA2MzYxNDk&ixlib=rb-1.2.1&q=80&w=1080",
+        //         "https://images.unsplash.com/photo-1620466692208-fcf6417e2ae7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw3fHx8fHx8Mnx8MTYyMDYzNTAxOQ&ixlib=rb-1.2.1&q=85",
+        //         "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //         "https://images.unsplash.com/photo-1620440663626-cba4be0817dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw4fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //         "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //         "https://images.unsplash.com/photo-1620599855781-a4ba5bbec57a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHwxMHx8fHx8fDJ8fDE2MjA2MzYxNDk&ixlib=rb-1.2.1&q=80&w=1080",
+        // ],
+
+        // };
+
+        // var url;
+        // url = masyvas.urls[3];
+        // console.log('sitas: ' + url);
+
+        // for(var i = 0; i < masyvas.urls.length; i++) {
+            // console.log('i sitas: ' + masyvas.urls[i]);
+            // var imageElement = document.createElement('img');
+            // imageElement.src = masyvas.urls[i];
+            // document.querySelector('.container').append(imageElement);
+
+        // }
+
+        // informacija = masyvas.image2;
+
+        // var imageElement = document.createElement('img');
+        // imageElement.src = masyvas.image1;
+        // document.querySelector('.container').append(imageElement);
+
+        // var imageElement1 = document.createElement('img');
+        // imageElement1.src = masyvas.image2;
+        // document.querySelector('.container').append(imageElement1);
+
+        // var imageElement2 = document.createElement('img');
+        // imageElement2.src = masyvas.image3;
+        // document.querySelector('.container').append(imageElement2);
+
+        // var imageElement3 = document.createElement('img');
+        // imageElement3.src = masyvas.image4;
+        // document.querySelector('.container').append(imageElement3);
+
+
+        // console.log(informacija);
+        // console.log(masyvas);
+
+        for(var stulp = 1; stulp <=2; stulp++) {
+            
+            fetch('https://api.unsplash.com/photos/?client_id=ZvkJTfXfewbmcwd7zcRowZPz21ObQRED6gDFFKFHxiY&page=' + stulp)
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+
+                for(var i = 0; i < data.length; i++) {
+                        if(stulp < 2) {
+                            console.log(data[i].urls.regular);
+                            var imageElement = document.createElement('img');
+                            imageElement.src = data[i].urls.regular;
+                            document.querySelectorAll('.col-md-6')[0].append(imageElement);
+                            console.log(stulp);
+                        } else {
+                            var imageElement = document.createElement('img');
+                            imageElement.src = data[i].urls.regular;
+                            document.querySelectorAll('.col-md-6')[1].append(imageElement);
+                            console.log(stulp);
+                        }
+                    }
+                }
+            );
+        }
+    </script>
+</body>
+</html>

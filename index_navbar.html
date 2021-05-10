@@ -94,6 +94,8 @@
             width: 24px;
             height: 3px;
             background-color: #555555;
+
+            transition: background-color 0.3s linear, transform 0.4s linear;
         }
 
         .navbar > .toggle > .icon:before,
@@ -124,6 +126,18 @@
 
         }
 
+        .navbar > .toggle.active > .icon {
+            background-color: transparent;
+        }
+
+        .navbar > .toggle.active > .icon:before {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .navbar > .toggle.active > .icon:after {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
         @media all and (max-width:816px) {
             
             .area {
@@ -133,8 +147,13 @@
             }
 
             .navbar > .list {
+                display: none;
                 flex-direction: column;
                 flex-wrap: wrap;
+            }
+
+            .navbar > .list.active {
+                display: flex;
             }
 
             .navbar > .list > .item {
@@ -151,7 +170,9 @@
             }
 
             .navbar > .toggle {
+            position: absolute;
             display:block;
+            right: 0;
             /* position: relative; */
             align-self: center;
   
@@ -204,12 +225,22 @@
             <span class='dinaminis1'>4</span>
             <button onclick='on()' class='on'>Įjungti</button>
             <button onclick='off()' class='off'>Išjungti</button>
+            <button class='onoff'>Įjungti/Išjungti</button>
 
             <div class='kvadratelis aktyvus'></div>
         </div>
     </div>
 
     <script>
+
+        document.querySelector('.onoff').onclick =  function () {
+                    document.querySelector('.kvadratelis').classList.toggle('aktyvus');
+                }
+//HABUREGER FUNKCIJA
+        document.querySelector('.toggle').onclick =  function () {
+            this.classList.toggle('active');
+            document.querySelector('.list').classList.toggle('active');
+        }
 
         function on() {
             document.querySelector('.kvadratelis').classList.add('aktyvus');

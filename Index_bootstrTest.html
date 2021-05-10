@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrapas Pics'u</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        /* * {
+            box-sizing: border-box;
+        } */
+
+        body {
+            margin: 0 auto;
+            width: 100%;
+            background-image: url('https://images.pexels.com/photos/9568/summer-sun-yellow-photography.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+            /* background-image: url('https://images.pexels.com/photos/281260/pexels-photo-281260.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); */
+            background-attachment: fixed;
+
+        }
+
+        /* .container-fluid {
+            margin: 0px;
+            padding: 0px;
+        } */
+
+        .Remas {
+            border: gainsboro;
+            border-width: 1px;
+            border-style: solid;
+            background-color: slategray;
+            
+        }
+        
+        .row {
+            width: 100%;
+            text-align: center;
+            align-content: center;
+            align-self: center;
+
+        }
+        img {
+            width: 100%;
+            height: auto;
+            /* min-height: 380px;
+            max-height: 380px; */
+            min-height: 320px;
+
+        }
+
+        .pav {
+            text-align: center;
+            vertical-align: bottom;
+            margin-bottom: 0px;
+            line-height: 30px;
+        }
+
+        .conteineris {
+            padding: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            align-self: center;
+            align-content: center;
+            text-align: center;
+        }
+        .col-6 {
+            width: 50%;
+            float: left;
+            padding: 5px;
+         }
+        .col-6:hover {
+            background-color: cornflowerblue;
+            
+        }
+
+        @media all and (max-width:1024px) {
+            .col-md-6 {
+            width: 100%;
+            float: left;
+            min-height: auto;
+            height: auto;
+            }
+        }
+
+
+
+    </style>
+
+</head>
+
+<body onload='addImg()'>
+
+    <div class='conteineris' >
+            <div class='col-6 col-md-6 Remas' title='Paveiksliukas'>
+                <div class='pic'></div>
+                <p class='pav'></p>
+            </div>
+
+            <div class='col-6 col-md-6 Remas' title='Paveiksliukas'>
+                <div class='pic'></div>
+                <p class='pav'></p>
+            </div>
+ 
+    </div>
+    
+
+    <script>
+
+        function addImg() { 
+
+            var imNr, maximSk=6;
+            for (imNr=0; imNr<=maximSk-1;imNr++) {
+//img
+                var img = document.createElement('img'); 
+                img.src = 'https://picsum.photos/600/400?random=' + imNr; 
+                document.querySelectorAll('.pic')[0].appendChild(img);
+//pav
+                var pav = document.createElement('p');
+                pav.innerHTML='Paveiksliukas - ' + Number(imNr + 1);
+                document.querySelectorAll('.pic')[0].appendChild(pav);
+
+                var neim = 'https://picsum.photos/id/'+ Number(imNr + 1) + '/info';
+                // var neim = document.querySelectorAll("a[href='https://picsum.photos/id/'"+ Number(imNr + 1) + "'/info']");
+
+                // document.querySelectorAll('.pav')[0].innerHTML = 'Paveiksliukas - ' + Number(imNr + 1);
+//img
+                img = document.createElement('img'); 
+                img.src = 'https://picsum.photos/600/400?random=' + imNr + 1; 
+                document.querySelectorAll('.pic')[1].appendChild(img);
+
+//pav                // document.querySelectorAll('.pav')[1].innerHTML = 'Paveiksliukas - ' + Number(imNr + 2);
+
+                var pav = document.createElement('p');
+                pav.innerHTML='Paveiksliukas - ' + Number(imNr + maximSk +1);
+                document.querySelectorAll('.pic')[1].appendChild(pav);
+
+                console.log(imNr + ' Pavadinimo URL: ' + neim);
+            }
+        }
+        
+        window.onscroll = function() {
+            var pageHeight=document.documentElement.offsetHeight,
+                windowHeight=window.innerHeight,
+                scrollPosition=window.scrollY || window.pageYOffset || document.body.scrollTop + (document.documentElement && document.documentElement.scrollTop || 0);
+
+                document.getElementById("val").innerHTML=pageHeight+','+windowHeight+','+scrollPosition;
+
+
+                if (pageHeight <= windowHeight+scrollPosition) {
+                    alert('At the bottom');
+                }
+        }
+      </script>
+
+
+</body>
+</html>
