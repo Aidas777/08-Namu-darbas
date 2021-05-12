@@ -40,15 +40,29 @@
             res.json
         })
         .catch(function() {
-            alert('ivyko kazkokia klaida scripte !');
+            // alert('ivyko kazkokia klaida scripte !');
         }) 
         .then(data => {
-
+            console.log(data);
             // for(var i = 0; i < data.length; i++) {
-                console.log(data);
+                
             // }
         }
         )
+
+        let txtas = 'obuolys ir kiti vaisiai';
+        console.log(txtas);
+
+        txtasIki = txtas.substring(0,1);
+        txtasIki= txtasIki.toUpperCase();
+        // console.log(txtasIki);
+
+        txtasPo = txtas.substring(1);
+        txtasPo = txtasPo.toLowerCase();
+        // console.log(txtasPo);
+
+        DoneTxt=txtasIki + txtasPo;
+        console.log(DoneTxt);
     </script>
 
 </body>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerija</title>
+    <title>Galerija mano Test</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -12,9 +12,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <style>
-        /* img {
-            width: 600px;
-        } */
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        p:first-letter {
+            text-transform: uppercase;
+        }        
 
         /* .col-md-6 {
             display: flex;
@@ -27,8 +32,8 @@
 
     <div class='container'>
         <div class='row'>
-            <div class='col-md-6'>AAA 1</div>
-            <div class='col-md-6'>AAA 2</div>
+            <div class='col-md-6'></div>
+            <div class='col-md-6'></div>
 
         </div>
         
@@ -95,35 +100,77 @@
 
         // console.log(informacija);
         // console.log(masyvas);
-        for(var stulp = 0; stulp <=1; stulp++) {
-            // var stulp = 2;
+
+        for(let stulp = 0; stulp < 2; stulp++) {
+            // var stulp = 0;
             // console.log('stulp: ' + stulp);
-            
-            fetch('https://api.unsplash.com/photos/?client_id=ZvkJTfXfewbmcwd7zcRowZPz21ObQRED6gDFFKFHxiY&page=' + stulp)
+            // console.log("https://api.unsplash.com/photos/?client_id=ZvkJTfXfewbmcwd7zcRowZPz21ObQRED6gDFFKFHxiY&page='" + stulp);
+            fetch('https://api.unsplash.com/photos/?client_id=ZvkJTfXfewbmcwd7zcRowZPz21ObQRED6gDFFKFHxiY&page=' + (stulp + 1))
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
-                for(var i = 0; i < data.length; i++) {
-                    console.log('stulp: ' + stulp);
-                        if (stulp = 0) {
-                            console.log(data[i].urls.regular);
-                            console.log('stulp1: ' + stulp);
-                            var imageElement = document.createElement('img');
+                console.log((stulp+1),data);
+                for(let i = 0; i < data.length; i++) {
+                    // console.log('stulp: ' + stulp);
+                        if (stulp < 1) {
+                            // console.log(data[i].urls.regular);
+                            // console.log('stulp1: ' + stulp);
+                            let imageElement = document.createElement('img');
                             imageElement.src = data[i].urls.regular;
                             document.querySelectorAll('.col-md-6')[0].append(imageElement);
+                            
 
+                            //pavadinimas
+
+                            let pElement = document.createElement('p');
+                            pElement.innerText = data[i].alt_description;
+                            if (pElement.innerText == null || pElement.innerText == undefined) {
+                                console.log('Nera pavadinimo ' + pElement.innerText);
+                            };
+                            pElement.classList.add('titlas');
+                            document.querySelectorAll('.col-md-6')[0].append(pElement);
+
+                            // console.log(pElement.innerText);
                         } else {
-                            console.log(data[i].urls.regular);
-                            console.log('stulp2: ' + stulp);
-                            var imageElement = document.createElement('img');
+                            // console.log(data[i].urls.regular);
+                            // console.log('stulp2: ' + stulp);
+                            let imageElement = document.createElement('img');
                             imageElement.src = data[i].urls.regular;
                             document.querySelectorAll('.col-md-6')[1].append(imageElement);
+
+                            
+                            //pavadinimas
+
+                            let pElement = document.createElement('p');
+                            pElement.innerText = data[i].alt_description;
+                            pElement.classList.add('titlas');
+                            document.querySelectorAll('.col-md-6')[1].append(pElement);
+                            
                             
                         }
                     }
+
+
                 }
             );
         }
+        var pageas = false;
+        let kartai = 0;
+        window.onscroll = function () {
+            
+            if (window.scrollY > (document.body.offsetHeight - window.outerHeight)) {
+                // console.log("It's working!");
+                if (kartai < 1) {
+                    pageas= true;
+                    alert('Atrodo veikia ! Kartai: ' + kartai + ' Naujas Page: ' + pageas);
+                    kartai++;
+
+                }
+            } else {
+                kartai = 0;
+                pageas= false;
+            }
+        }
+
     </script>
 </body>
 </html>

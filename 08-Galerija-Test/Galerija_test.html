@@ -4,61 +4,134 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerija</title>
+    <title>Galerija mano</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script> 
+    <script src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js'></script>
+
+
     <style>
-        /* img {
-            width: 600px;
-        } */
+        img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .grid-item:nth-child(odd) > img {
+            height: 500px;
+        }
+
+        .grid-gutter-sizer {
+            width: 0;
+        }
+
     </style>
 </head>
 <body>
 
     <div class='container'>
-        <div class='row'>
-            <div class='col-md-6'>Tetstas</div>
-            <div class='col-md-6'></div>
-            <div class='col-md-6'></div>
-            <div class='col-md-6'></div>
-            <div class='col-md-6'></div>
-            <div class='col-md-6'></div>
-            <div class='col-md-6'></div>
+
+        <div class='sort-by-button-group button-group'>
+            <button class='btn btn-outline-primary' data-sort-value='title' data-sort-direction='asc'>A-Z</button>
+            <button class='btn btn-primary' data-sort-value='title' data-sort-direction='desc'>Z-A</button>
+            <button class='btn btn-primary' data-sort-value='random' data-sort-direction='desc'>Random</button>
+            <span class='txtas' data-sort-value='title' data-sort-direction='nieko'>AAA</span>
+        </div>
+        <div class='row grid'>
+            <div class='col-md-6 grid-sizer'></div>
+            <div class='grid-gutter-sizer'></div>
         </div>
         
     </div>
     
     <script>
 
-        var x = 1 ;
+        //Salygos sakinys
 
-        var masyvas;
-        var informacija = '';
+        // var skaicius = 9;
+        // var tesktas = 'tekstas 1';
 
-        masyvas = {
-            "image1": "https://images.unsplash.com/photo-1620466692208-fcf6417e2ae7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw3fHx8fHx8Mnx8MTYyMDYzNTAxOQ&ixlib=rb-1.2.1&q=85",
-            "image2": "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
-            "image3": "https://images.unsplash.com/photo-1620440663626-cba4be0817dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw4fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
-            "image4": "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //jeigu musu skaicius daugiau nei 8
 
-            "urls": [
-                "https://images.unsplash.com/photo-1620466692208-fcf6417e2ae7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw3fHx8fHx8Mnx8MTYyMDYzNTAxOQ&ixlib=rb-1.2.1&q=85",
-                "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
-                "https://images.unsplash.com/photo-1620440663626-cba4be0817dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw4fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
-                "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
-                "https://images.unsplash.com/photo-1620599855781-a4ba5bbec57a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHwxMHx8fHx8fDJ8fDE2MjA2MzYxNDk&ixlib=rb-1.2.1&q=80&w=1080",
-                "https://images.unsplash.com/photo-1620466692208-fcf6417e2ae7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw3fHx8fHx8Mnx8MTYyMDYzNTAxOQ&ixlib=rb-1.2.1&q=85",
-                "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
-                "https://images.unsplash.com/photo-1620440663626-cba4be0817dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw4fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
-                "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
-                "https://images.unsplash.com/photo-1620599855781-a4ba5bbec57a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHwxMHx8fHx8fDJ8fDE2MjA2MzYxNDk&ixlib=rb-1.2.1&q=80&w=1080",
-        ],
+        // >
+        // <
+        // >=
+        // <=
+        // ==
+        // !=
 
-        };
+        // if(tesktas == '') {
+        //     console.log('Tekstas tuscias');
+        // } else {
+        //     console.log(tesktas);
+        // }
+
+        // if(skaicius > 8) {
+        //     console.log('Skaicius yra didesnis nei 8');
+        // }
+
+        // const konstanta='3.141';
+
+        // let kintamasis;
+
+        // var kintamasis;
+
+        // var zmogus = {
+        //     'vardas': 'Vardenis',
+        //     'pavarde': 'Pavardenis',
+        //     'kodas': '358117',
+        //     'apibudinimas': ['aukstas', 'turtingas', 'nemoka siuti']
+        // };
+
+        // var zmogus1 = {
+        //     'vardas': 'Vardenis1',
+        //     'pavarde': 'Pavardenis1',
+        //     'kodas': '358227',
+        //     'apibudinimas': ['zemas', 'turtingas', 'moka siuti']
+        // };
+
+        // console.log(zmogus.vardas);
+        // console.log(zmogus1.pavarde);
+
+        // var grupe;
+        // grupe = [zmogus,zmogus1];
+
+        // for(var i = 0; i < grupe.length; i++) {
+        //     console.log(grupe[i].vardas);
+        // }
+
+        // console.log(grupe);
+
+        // var x = 1 ;
+
+        // var masyvas;
+        // var informacija = '';
+
+        // masyvas = {
+        //     "image1": "https://images.unsplash.com/photo-1620466692208-fcf6417e2ae7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw3fHx8fHx8Mnx8MTYyMDYzNTAxOQ&ixlib=rb-1.2.1&q=85",
+        //     "image2": "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //     "image3": "https://images.unsplash.com/photo-1620440663626-cba4be0817dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw4fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //     "image4": "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+
+        //     "urls": [
+        //         "https://images.unsplash.com/photo-1620466692208-fcf6417e2ae7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw3fHx8fHx8Mnx8MTYyMDYzNTAxOQ&ixlib=rb-1.2.1&q=85",
+        //         "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //         "https://images.unsplash.com/photo-1620440663626-cba4be0817dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw4fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //         "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //         "https://images.unsplash.com/photo-1620599855781-a4ba5bbec57a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHwxMHx8fHx8fDJ8fDE2MjA2MzYxNDk&ixlib=rb-1.2.1&q=80&w=1080",
+        //         "https://images.unsplash.com/photo-1620466692208-fcf6417e2ae7?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw3fHx8fHx8Mnx8MTYyMDYzNTAxOQ&ixlib=rb-1.2.1&q=85",
+        //         "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //         "https://images.unsplash.com/photo-1620440663626-cba4be0817dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw4fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //         "https://images.unsplash.com/photo-1620589775440-aeea9fb641c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHw2fHx8fHx8Mnx8MTYyMDYzMTg4NA&ixlib=rb-1.2.1&q=80&w=1080",
+        //         "https://images.unsplash.com/photo-1620599855781-a4ba5bbec57a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4MDZ8MHwxfGFsbHwxMHx8fHx8fDJ8fDE2MjA2MzYxNDk&ixlib=rb-1.2.1&q=80&w=1080",
+        // ],
+
+        // };
 
         // var url;
         // url = masyvas.urls[3];
@@ -72,7 +145,7 @@
 
         // }
 
-        informacija = masyvas.image2;
+        // informacija = masyvas.image2;
 
         // var imageElement = document.createElement('img');
         // imageElement.src = masyvas.image1;
@@ -94,19 +167,84 @@
         // console.log(informacija);
         // console.log(masyvas);
 
+
+
         fetch('https://api.unsplash.com/photos/?client_id=ZvkJTfXfewbmcwd7zcRowZPz21ObQRED6gDFFKFHxiY&page=2')
         .then(res => res.json())
         .then(data => {
             // console.log(data);
 
-            for(var i = 0; i < masyvas.urls.length; i++) {
-                console.log(data[i].urls.regular);
+            for(var i = 0; i < data.length; i++) {
+                // console.log(data[i].urls.regular);
+
+                //pavadinimo atvaizdavimas
+
+                var pElement = document.createElement('p');
+                pElement.classList.add('title');
+
+                if(!data[i].alt_description) {
+                    pElement.innerText = 'Aprasymas yra tuscias';
+                } else {
+                    pElement.innerText=data[i].alt_description;
+                }
+
+                //susikuriame paveiksliuka
                 var imageElement = document.createElement('img');
                 imageElement.src = data[i].urls.regular;
-                document.querySelector('.container').append(imageElement);
-                }
+
+                //susikuriame div
+                var divElement = document.createElement('div');
+                divElement.classList.add('col-md-6');
+                divElement.classList.add('grid-item');
+
+                //prie div prikabiname img ir p
+                divElement.append(imageElement);
+                divElement.append(pElement);
+
+                //div prikabiname prie grid
+                document.querySelector('.grid').append(divElement);
+
+
             }
-        );
+
+            var iso = new Isotope('.grid',{
+                itemSelector: '.grid-item', 
+                stagger: 30,
+                getSortData: {
+                    title: '.title'
+                },
+                masonry: {
+                    columnWidth: '.grid-sizer',
+                    gutter: '.grid-gutter-sizer'
+                },
+
+                sortBy: 'title',
+                sortAscending: true
+            });
+
+            var sortByGroup = document.querySelector('.sort-by-button-group');
+            sortByGroup.addEventListener('click', function(event) {
+
+                if(!matchesSelector(event.target,'.btn')) {
+                   return; 
+                }
+
+                var sortValue = event.target.getAttribute('data-sort-value');
+                var sortDirection = event.target.getAttribute('data-sort-direction');
+                var isAscending = (sortDirection == 'asc'); //grazins true jei sortDirection = asc
+
+                iso.arrange({
+                    sortBy: sortValue,
+                    sortAscending: isAscending
+                });
+
+                // if(typeof tekstas == 'undefined')
+
+                console.log(sortValue, sortDirection ,isAscending);
+                                        
+            });
+        }
+    );
 
     </script>
 </body>
