@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script> 
     <script src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js'></script>
@@ -30,6 +30,11 @@
             width: 0;
         }
 
+        /* .sort-by-button-group {
+            position: fixed;
+            z-index: 1;
+        } */
+
     </style>
 </head>
 <body>
@@ -38,7 +43,7 @@
 
         <div class='sort-by-button-group button-group'>
             <button class='btn btn-outline-primary' data-sort-value='title' data-sort-direction='asc'>A-Z</button>
-            <button class='btn btn-primary' data-sort-value='title' data-sort-direction='desc'>Z-A</button>
+            <button class='btn btn-outline-primary' data-sort-value='title' data-sort-direction='desc'>Z-A</button>
             <button class='btn btn-primary' data-sort-value='random' data-sort-direction='desc'>Random</button>
             <span class='txtas' data-sort-value='title' data-sort-direction='nieko'>AAA</span>
         </div>
@@ -167,85 +172,114 @@
         // console.log(informacija);
         // console.log(masyvas);
 
+        
+        var iso;
+        var pages = 1;
+
+        loadImages(pages); //1
+
+        function loadImages(page) {
+            fetch('https://api.unsplash.com/photos/?client_id=ZvkJTfXfewbmcwd7zcRowZPz21ObQRED6gDFFKFHxiY&page=' + page)
+            .then(res => res.json())
+            .then(data => {
 
 
-        fetch('https://api.unsplash.com/photos/?client_id=ZvkJTfXfewbmcwd7zcRowZPz21ObQRED6gDFFKFHxiY&page=2')
-        .then(res => res.json())
-        .then(data => {
-            // console.log(data);
+                // console.log(data);
 
-            for(var i = 0; i < data.length; i++) {
-                // console.log(data[i].urls.regular);
+                for(var i = 0; i < data.length; i++) {
+                    // console.log(data[i].urls.regular);
 
-                //pavadinimo atvaizdavimas
+                    //pavadinimo atvaizdavimas
 
-                var pElement = document.createElement('p');
-                pElement.classList.add('title');
+                    var pElement = document.createElement('p');
+                    pElement.classList.add('title');
 
-                if(!data[i].alt_description) {
-                    pElement.innerText = 'Aprasymas yra tuscias';
-                } else {
-                    pElement.innerText=data[i].alt_description;
+                    if(!data[i].alt_description) {
+                        pElement.innerText = 'Aprasymas yra tuscias';
+                    } else {
+                        pElement.innerText=data[i].alt_description;
+                    }
+
+                    //susikuriame paveiksliuka
+                    var imageElement = document.createElement('img');
+                    imageElement.src = data[i].urls.regular;
+
+                    //susikuriame div
+                    var divElement = document.createElement('div');
+                    divElement.classList.add('col-md-6');
+                    divElement.classList.add('grid-item');
+
+                    //prie div prikabiname img ir p
+                    divElement.append(imageElement);
+                    divElement.append(pElement);
+
+                    //div prikabiname prie grid
+                    document.querySelector('.grid').append(divElement);
+
+
                 }
 
-                //susikuriame paveiksliuka
-                var imageElement = document.createElement('img');
-                imageElement.src = data[i].urls.regular;
+                    iso = new Isotope('.grid',{
+                    itemSelector: '.grid-item', 
+                    stagger: 30,
+                    getSortData: {
+                        title: '.title'
+                    },
+                    masonry: {
+                        columnWidth: '.grid-sizer',
+                        gutter: '.grid-gutter-sizer'
+                    },
 
-                //susikuriame div
-                var divElement = document.createElement('div');
-                divElement.classList.add('col-md-6');
-                divElement.classList.add('grid-item');
-
-                //prie div prikabiname img ir p
-                divElement.append(imageElement);
-                divElement.append(pElement);
-
-                //div prikabiname prie grid
-                document.querySelector('.grid').append(divElement);
-
-
-            }
-
-            var iso = new Isotope('.grid',{
-                itemSelector: '.grid-item', 
-                stagger: 30,
-                getSortData: {
-                    title: '.title'
-                },
-                masonry: {
-                    columnWidth: '.grid-sizer',
-                    gutter: '.grid-gutter-sizer'
-                },
-
-                sortBy: 'title',
-                sortAscending: true
-            });
-
-            var sortByGroup = document.querySelector('.sort-by-button-group');
-            sortByGroup.addEventListener('click', function(event) {
-
-                if(!matchesSelector(event.target,'.btn')) {
-                   return; 
-                }
-
-                var sortValue = event.target.getAttribute('data-sort-value');
-                var sortDirection = event.target.getAttribute('data-sort-direction');
-                var isAscending = (sortDirection == 'asc'); //grazins true jei sortDirection = asc
-
-                iso.arrange({
-                    sortBy: sortValue,
-                    sortAscending: isAscending
+                    sortBy: 'title',
+                    sortAscending: true
                 });
 
-                // if(typeof tekstas == 'undefined')
 
-                console.log(sortValue, sortDirection ,isAscending);
-                                        
-            });
+                var sortByGroup = document.querySelector('.sort-by-button-group');
+                sortByGroup.addEventListener('click', function(event) {
+
+                    if(!matchesSelector(event.target,'.btn')) {
+                    return; 
+                    }
+
+                    var sortValue = event.target.getAttribute('data-sort-value');
+                    var sortDirection = event.target.getAttribute('data-sort-direction');
+                    var isAscending = (sortDirection == 'asc'); //grazins true jei sortDirection = asc
+
+                    iso.arrange({
+                        sortBy: sortValue,
+                        sortAscending: isAscending
+                    });
+
+                    // if(typeof tekstas == 'undefined')
+
+                    console.log(sortValue, sortDirection ,isAscending);
+                                            
+                });
+            }
+        );
+
         }
-    );
 
+        //SCROLAS
+        window.addEventListener('scroll', function() {
+                    // console.log(window.scrollY);
+                    // console.log(document.body.offsetHeight);
+                    // console.log(window.innerHeight);
+                    // console.log(window.scrollY + window.innerHeight);
+
+                    var pozicija = window.scrollY + window.innerHeight;
+                    if(pozicija >= document.body.offsetHeight) {
+                        if(pages < 9) {
+                        console.log('Puslapio pabaiga');
+                        pages++;
+                        console.log(pages);
+                        loadImages(pages);
+                        }
+                    }
+                });
+    
+        
     </script>
 </body>
 </html>
