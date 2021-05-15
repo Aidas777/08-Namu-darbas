@@ -94,16 +94,17 @@
             color: #FFFFFF;
             position: absolute;
             top: 32px;
-            left: 12.5%;
+            left: 40px;
+            /* position: relative; */
         }
 
         .signupLow {
             margin-bottom: 0px;
             bottom: 25px;
-            left: 12.5%;
+            left: 40px;
             position: absolute;
             float: left;
-            display: flex;
+            /* display: flex; */
         }
 
         .signupLow a {
@@ -209,14 +210,39 @@
 
         @media all and (max-width: 720px) {
 
+            .container {
+                width: 100%;
+            }
+
             .row-main {
                 display: flex;
                 flex-flow: column wrap;
+                width: 100%;
                 flex-direction: column;
+                height: auto;
+                transform: none;
+                position: relative;
+                top: 10px;
+                padding-bottom: 20px;
             }
 
             .col-1-main {
-                width: 100%;
+                width: 320px;
+                float: left;
+                margin-left: auto;
+                margin-right: auto;
+                /* position: relative; */
+
+            }
+
+            .col-2-main {
+                width: 480px;
+                height: 484px;
+                float: left;
+                margin-top: 10px;
+                margin-left: auto;
+                margin-right: auto;
+                /* position: absolute; */
             }
         }
 
@@ -267,7 +293,7 @@
                         <p class= 'sentcase pTop12'>Enter your password</p>
                     </div>
 
-                    <div class= 'row-c-3'>
+                    <div class= 'row-c-3'> <!--SIAM TRECIO PARAMETRAI TINKA-->
                         <p class='ucase'>REPEAT PASSWORD</p>
                         <p class= 'sentcase pTop12'>Enter your password</p>
                     </div>

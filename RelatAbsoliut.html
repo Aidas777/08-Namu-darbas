@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pozicijos Relative/Absoliut</title>
+
+    <style>
+
+        body {
+            max-width: 1280px;
+        }
+
+        .container {
+            margin-top: 0;
+            margin-left: auto;
+            margin-right: auto;
+            /* position: relative; */
+            background-color: cornflowerblue;
+            min-width: 1200px;
+            height: 500px;
+        }
+
+        .blockMax {
+            width: 1000px;
+            height: 400px;
+            background-color: darkslategrey;
+            top: 50px;
+            left: 50px;
+            position: relative;
+        }
+
+        .blockMid {
+            width: 700px;
+            height: 300px;
+            background-color: deepskyblue;
+            top: 30px;
+            left: 90px;
+            position: absolute;
+
+        }
+
+        .blockMin {
+            width: 500px;
+            height: 200px;
+            background-color: greenyellow;
+            top: 20px;
+            left: 170px;
+            position: relative;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class='container'>
+        <div class= 'blockMax'>
+            <div class= 'blockMid'>
+                <div class= 'blockMin'>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
