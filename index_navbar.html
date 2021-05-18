@@ -139,6 +139,11 @@
         }
 
         @media all and (max-width:816px) {
+
+            .navbar-component {
+                position: absolute;
+                width: 100%;
+            }
             
             .area {
                 flex-direction: column;
@@ -220,7 +225,7 @@
             </div>
         </div>
 
-        <div class='main'>
+        <div class='main' id='main'>
             <span class='dinaminis'>Tesktas</span>
             <span class='dinaminis1'>4</span>
             <button onclick='on()' class='on'>Įjungti</button>
@@ -232,6 +237,32 @@
     </div>
 
     <script>
+
+        console.log('Aukstis ' + document.querySelector('.navbar-component').offsetHeight + 'px');
+        //var windowWidth = document.documentElement.clientWidth;
+        //console.log('Ekrano Plotis ' + windowWidth + ' px');
+
+        var windowWidth = document.documentElement.clientWidth;
+            if(windowWidth <= '816') {
+                // console.log('Ekranas siauresnis nei 816');
+                document.querySelector('.main').style.paddingTop = document.querySelector('.navbar-component').offsetHeight + 'px';
+                console.log('Neveikia ' +document.querySelector('.navbar-component').offsetHeight + 'px');
+            } else {
+                document.querySelector('.main').style.paddingTop = 0;
+            };
+
+        window.addEventListener('resize', function() {
+            var windowWidth = document.documentElement.clientWidth;
+            if(windowWidth <= '816') {
+                // console.log('Ekranas siauresnis nei 816');
+                document.querySelector('.main').style.paddingTop = document.querySelector('.navbar-component').offsetHeight + 'px';
+                console.log('Neveikia ' +document.querySelector('.navbar-component').offsetHeight + 'px');
+            } else {
+                document.querySelector('.main').style.paddingTop = 0;
+            };
+
+            // console.log('Ekrano Plotis ' + windowWidth + ' px');
+        })
 
         document.querySelector('.onoff').onclick =  function () {
                     document.querySelector('.kvadratelis').classList.toggle('aktyvus');

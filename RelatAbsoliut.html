@@ -10,6 +10,7 @@
 
         body {
             max-width: 1280px;
+            width: 800px;
         }
 
         .container {
@@ -27,17 +28,18 @@
             height: 400px;
             background-color: darkslategrey;
             top: 50px;
-            left: 50px;
+            left: 10px;
             position: relative;
         }
 
-        .blockMid {
+        .blockMidle {
             width: 700px;
             height: 300px;
             background-color: deepskyblue;
             top: 30px;
-            left: 90px;
+            left: 10px;
             position: absolute;
+
 
         }
 
@@ -45,9 +47,30 @@
             width: 500px;
             height: 200px;
             background-color: greenyellow;
-            top: 20px;
-            left: 170px;
+            top: 10px;
+            left: 10px;
             position: relative;
+        }
+
+        #btn {
+            width: 100px;
+            height: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: blue;
+            border: none;
+            position: absolute;
+            align-self: center;
+            align-content: center;
+            border-radius: 10px;
+            color: cornsilk;
+            font-weight: 700;
+            box-shadow: dimgrey 5px 5px 5px;
+
+        }
+
+        p {
+            margin: 0;
         }
 
     </style>
@@ -56,13 +79,24 @@
 
     <div class='container'>
         <div class= 'blockMax'>
-            <div class= 'blockMid'>
+            <p>Maximal</p>
+            <div class= 'blockMidle'>
+                <p>Middle</p>
                 <div class= 'blockMin'>
-
+                    <p>Minimal</p>
+                    <button id='btn'>Bandom</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+
+        document.getElementById('btn').addEventListener('click', function() {
+            confirm('Butonas veikia');
+        });
+
+    </script>
     
 </body>
 </html>
